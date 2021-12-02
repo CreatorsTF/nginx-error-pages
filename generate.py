@@ -5,6 +5,7 @@ import requests
 r = requests.get('http://webconcepts.info/concepts/http-status-code.json')
 json = r.json()
 
+
 for i in json["values"]:
     template = "templates/" + i["value"][0:1] + "xx.html"
     with open(template) as f:
