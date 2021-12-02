@@ -1,23 +1,118 @@
 <!DOCTYPE html>
-<html>
+<html class="dark" lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="/_errors/main.css"/>
-	<title>Error 404 - %{HOSTNAME}</title>
+	<title>Not Found &mdash; Creators.TF</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+	<meta name="color-scheme" content="light dark">
+	<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://status.creators.tf/creators-portable.css?tanner">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script>
+		document.onreadystatechange = function () {
+
+			if (document.readyState != "complete") return;
+
+			for (const btn of document.getElementsByClassName('tf-button')) {
+				btn.addEventListener('mousemove', ({clientX: x, clientY: y}) => {
+					let rect = btn.getBoundingClientRect();
+					let X = ((x - rect.left) - (rect.width / 2)) / rect.width * 10;
+					let Y = ((y - rect.top) - (rect.height / 2)) / rect.height * 10;
+					btn.style.setProperty('--x', `calc(${X}% + 50%)`);
+					btn.style.setProperty('--y', `calc(${Y}% + 50%)`);
+				});
+			}
+		}
+	</script>
 	<style>
-		html{
-			background-color: #e74c3c;
-		}
-		
-		body{
-			color: #fefefe;
-		}
+	body {
+		background: none !important;
+		display: flex;
+		flex-direction: column;
+	}
+	main {
+		flex: 1;
+		position: relative;
+	}
+	main:before {
+		content: '';
+		display: block;
+		background-image: url(https://wiki.teamfortress.com/w/images/e/ea/Taunt_jumping_jack.png);
+		background-repeat: no-repeat !important;
+		background-size: 50%;
+		position: absolute;
+		overflow: visible;
+		top: 0;
+		background-position: top;
+		height: 100%;
+		width: 50%;
+	}
+
+	h2 {
+		font-family: Rowdies, sans-serif;
+		text-transform: uppercase;
+	}
 	</style>
 </head>
-
 <body>
-<div class="error-middle">
-	<h1>Error 404 - Not Found</h1>
-	<p>The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists. A 404 status code does not indicate whether this lack of representation is temporary or permanent; the 410 (Gone) status code is preferred over 404 if the origin server knows, presumably through some configurable means, that the condition is likely to be permanent.</p>
-</div>
-</body>
+	<header>
+		<nav class="navbar navbar-light">
+			<div class="container" style="padding: 0 1em;">
+				<a class="navbar-brand" href="https://creators.tf">
+					<img src="https://creators.tf/cdn/assets/images/creators_logo_gear_newest.png" alt="Creators.TF Logo" style="height: 43px;">
+				</a>
+				<div class="navbar-expand mr-auto" style="padding-left: 50px">
+					<ul class="navbar-nav">
+						<a href="https://creators.tf/contracker" class="nav-item nav-link">
+							<i class="mdi mdi-tablet"></i> Contracker
+						</a>
+						<a href="https://creators.tf/store" class="nav-item nav-link">
+							<i class="mdi mdi-store"></i> Store
+						</a>
+				</div>
+			</div>
+			</div>
+		</nav>
+	</header>
+	<main class="container mt-5">
+		<article>
+			<div class="row">
+				<div class="col-6"></div>
+				<div class="col" style="text-align: justify;">
+					<span>
+						<span style="background: rgb(175 31 31); padding: .25rem .5rem;">
+							<i class="mdi mdi-alert"></i>
+							<code style="color: white !important; font-family: 'Oswald';">ERROR CODE 404</code>
+						</span>
+					</span>
+					<h2 class="mt-2">Not Found</h2>
+					<p class="mt-2">
+						<em>Oh no! It seems that you've encountered an error&mdash;</em>
+					</p>
+					<blockquote cite="https://httpstatuses.com/404">The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists. A 404 status code does not indicate whether this lack of representation is temporary or permanent; the 410 (Gone) status code is preferred over 404 if the origin server knows, presumably through some configurable means, that the condition is likely to be permanent.</blockquote>
+					<p>Our development team has been notified via Sentry, our error tracking service. Below are two optons to assist you in navigating onward from this error page.</p>
+					<div class="mt-5 float-right d-flex align-items-center">
+						<a class="tf-button2" href="https://creators.tf">
+							<i class="mdi mdi-home"></i>
+							<label>homepage</label>
+						</a>
+						<button class="tf-button2" style="height: 48px" onclick="javascript:history.back(1)" title="Go back one page">
+							<svg style="width:1.5rem; height:1.5rem" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M13.5 21H6V17H13.5C15.43 17 17 15.43 17 13.5S15.43 10 13.5 10H11V14L4 8L11 2V6H13.5C17.64 6 21 9.36 21 13.5S17.64 21 13.5 21Z" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</article>
+	</main>
+	<footer class="my-5 pt-5 text-muted text-center text-small">
+		<p class="mb-1">&copy; CreatorsTF LTD 2019 &ndash; 2021</p>
+		</footer>
+	</body>
 </html>
+

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests
 
 r = requests.get('http://webconcepts.info/concepts/http-status-code.json')
