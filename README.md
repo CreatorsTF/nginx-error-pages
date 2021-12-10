@@ -3,12 +3,9 @@ Make your nginx error pages look great
 
 ## Installation
 ```bash
-mkdir -p /srv/http/default
-git clone https://github.com/denysvitali/nginx-error-pages /srv/http/default
-mkdir /etc/nginx/snippets/
-ln -s /srv/http/default/snippets/error_pages.conf /etc/nginx/snippets/error_pages.conf
-ln -s /srv/http/default/snippets/error_pages_content.conf /etc/nginx/snippets/error_pages_content.conf
+curl https://raw.githubusercontent.com/CreatorsTF/creatorstf-nginx-error-pages/master/install.sh | sudo bash - 
 ```
+
 Then add to each of your vhosts the following:
 ```
 include snippets/error_pages.conf;
